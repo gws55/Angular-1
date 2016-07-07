@@ -1,0 +1,21 @@
+{
+  "name": "0707",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node tools/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "browser-sync": "^2.13.0",
+    "jquery": "^3.0.0",
+    "path": "^0.12.7"
+  }
+}

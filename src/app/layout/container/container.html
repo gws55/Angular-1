@@ -1,0 +1,35 @@
+<div id="container">
+	<input type="hidden" id="whichTab" value="homeTab" />
+	<div navbar></div>
+
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<ng-view></ng-view>
+	</div>
+	<div class="col-md-2"></div>
+
+	<!-- loading overlay -->
+	<div id="loading-overlay" class="loading-parent">
+		<div class="loading-gif"></div>
+	</div>
+	<script>
+	    function toggleProgress() {
+	    	var el = document.getElementById("loading-overlay");
+	    	if (el.style.display == "none") {
+	    		loadingToggleOn();
+	    	} else {
+	    		loadingToggleOff();
+	    	}
+	    }
+	    function loadingToggleOn() {
+	    	var el = document.getElementById("loading-overlay");
+    		el.style.display = "block";
+    		el.style.opacity = "0.3";
+	    }
+	    function loadingToggleOff() {
+	    	var el = document.getElementById("loading-overlay");
+    		el.style.display = "none";
+    		el.style.opacity = "";
+	    }
+    </script>
+</div>

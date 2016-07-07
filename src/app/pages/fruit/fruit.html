@@ -1,0 +1,76 @@
+<div ng-controller="FruitController as vm">
+	<h1>Fruit Page</h1>
+	
+	<table class="table table-hover table-bordered">
+		<thead>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Created Date</th>
+			<th>Modified Date</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="fruit in vm.fruitList">
+				<td style="width:5%">{{fruit.id}}</td>
+				<td style="width:20%">{{fruit.name}}</td>
+				<td style="width:20%">{{fruit.create_date}}</td>
+				<td style="width:20%">{{fruit.update_date}}</td>
+				<td style="width:18%">
+					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#editModal" ng-click="vm.toggleEdit(fruit)"><span class="glyphicon glyphicon-pencil"></span></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createModal">Add a Fruit</button>
+
+	<!-- modal for insert -->
+	<div  class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel">
+		<div class="modal-dialog" role="document" style="width:300px;">
+		    <div class="modal-content">
+				<form ng-submit="vm.createFruit(newFruit)">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="createModalLabel">Create a New Fruit</h4>
+					</div>
+					<div class="modal-body">
+						<div style="width:30px;"><strong>Name</strong></div>
+						<input type="text" ng-model="newFruit.name"/>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button type="submit" class="btn btn-primary">Create</button>
+					</div>
+				</form>
+		    </div>
+		</div>
+	</div>
+	
+	<!-- modal for edit -->
+	<div  class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+		<div class="modal-dialog" role="document" style="width:300px;">
+		    <div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="editModalLabel">Edit Fruit</h4>
+				</div>
+				<div class="modal-body">
+					<div style="margin-bottom:10px;">
+						<div style="width:30px;"><strong>ID</strong></div>
+						<input type="text" ng-model="vm.updateFruit.id" disabled />
+					</div>
+					<div style="margin-bottom:10px;">
+						<div style="width:30px;"><strong>Name</strong></div>
+						<input type="text" ng-model="vm.updateFruit.name"/>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-danger" style="float:left;" ng-click="vm.deleteFruit(vm.updateFruit)">Delete</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn btn-primary" ng-click="vm.editFruit(vm.updateFruit)">Update</button>
+				</div>
+		    </div>
+		</div>
+	</div>
+
+</div>
