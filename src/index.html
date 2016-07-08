@@ -4,13 +4,9 @@
         <meta charset="UTF-8">
         <title>Angular 1</title>
 
-        <!-- jQuery (for Bootstrap) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        
-        <!-- Bootstrap CSS, optional theme, & javascript -->
+        <!-- CDNs -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- endCDNs -->
 
         <!-- inject:css -->
         <link rel="stylesheet" href="/src/assets/styles/main.css">
@@ -19,28 +15,28 @@
     <body>
         <div container></div>
 
+        <!-- CDNs -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- endCDNs -->
+
         <!-- inject-vendor:js -->
         <script src="/node_modules/angular/angular.js"></script>
         <script src="/node_modules/angular-resource/angular-resource.js"></script>
         <script src="/node_modules/angular-route/angular-route.js"></script>
+        <script src="/node_modules/angular-smart-table/dist/smart-table.js"></script>
         <!-- endinject -->
 
         <!-- inject:js -->
-        <!-- Angular Bootstrapping -->
         <script src="/src/app/app.module.js"></script>
-        <!-- Logger -->
         <script src="/src/app/logger/logger.module.js"></script>
         <script src="/src/app/logger/logger.js"></script>
-        <!-- Router -->
         <script src="/src/app/router/router.module.js"></script>
         <script src="/src/app/router/router.js"></script>
-        <!-- Widgets -->
         <script src="/src/app/widgets/widgets.module.js"></script>
-        <!-- Layout -->
         <script src="/src/app/layout/layout.module.js"></script>
         <script src="/src/app/layout/container/container.js"></script>
         <script src="/src/app/layout/navbar/navbar.js"></script>
-        <!-- Pages -->
         <script src="/src/app/pages/pages.module.js"></script>
         <script src="/src/app/pages/about/about.controller.js"></script>
         <script src="/src/app/pages/fruit/fruit.controller.js"></script>
@@ -50,9 +46,7 @@
 
         <!-- ONLY IN DEV!!! -->
         <script id="__bs_script__">
-            //<![CDATA[
-            document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.13.0.js'><\/script>".replace("HOST", location.hostname));
-            //]]>
+            //<![CDATA[document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.13.0.js'><\/script>".replace("HOST", location.hostname));//]]>
         </script>
     </body>
 </html>

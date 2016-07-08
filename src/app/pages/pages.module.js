@@ -1,6 +1,8 @@
 (function() {
     'use strict';
 
-    angular.module('App.pages', []);
+    angular.module('App.pages', [
+    	'smart-table'
+    ]);
     
 })();

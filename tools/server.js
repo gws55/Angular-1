@@ -8,6 +8,7 @@ browserSync({
   port: 3000,
   files: [
     './src/**/*.html',
-    './src/**/*.js'
+    './src/**/*.js',
+    './src/**/*.css'
   ]
 });
