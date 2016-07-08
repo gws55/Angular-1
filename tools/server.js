@@ -4,7 +4,6 @@ browserSync({
   server: {
     baseDir: ".",
     directory: true
-    // index: "src/index.html#/"
   },
   port: 3000,
   files: [
