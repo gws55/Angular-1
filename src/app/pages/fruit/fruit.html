@@ -5,19 +5,33 @@
 		<i class="glyphicon glyphicon-plus"></i>
 		Add a Fruit
 	</button>
-	
+
 	<!-- Smart Table -->
 	<table st-table="displayedFruitList" st-safe-src="vm.fruitList" class="table table-hover table-striped">
 		<thead>
 			<tr>
 				<th st-sort="id" st-sort-default="true">ID</th>
 				<th st-sort="name">Name</th>
+				<th st-sort="type">Type</th>
+				<th st-sort="age">Age</th>
 				<th st-sort="create_date">Created Date</th>
 				<th st-sort="update_date">Modified Date</th>
 				<th></th>
 			</tr>
 			<tr>
-				<th colspan="5"><input st-search="name" class="form-control" placeholder="search for name ..." type="text"/></th>
+				<th colspan="2"><input st-search="name" class="form-control" placeholder="search for name ..." type="text"/></th>
+		        <th>
+		            <select st-search="type">
+		                <option value="">All</option>
+		                <option ng-repeat="fruit in displayedFruitList | unique:'type' | filter:{type:''}" value="{{fruit.type}}">{{fruit.type}}</option>
+		            </select>
+		        </th>
+		        <th></th>
+		        <th>
+					<div st-date-range predicate="create_date" before="query.before" after="query.after"></div>
+		        </th>
+		        <th></th>
+		        <th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,19 +39,35 @@
 				<td style="width:5%">
 					{{fruit.id}}
 				</td>
-				<td ng-switch="vm.isEditing(fruit)" style="width:20%">
+				<td ng-switch="vm.isEditing(fruit)" style="width:24%">
 					<span ng-switch-default>{{fruit.name}}</span>
 					<span ng-switch-when="true">
 						<input type="text" ng-model="fruit.name" />
 					</span>
 				</td>
-				<td style="width:20%">
+				<td ng-switch="vm.isEditing(fruit)"  style="width:12%">
+					<span ng-switch-default>{{fruit.type}}</span>
+					<span ng-switch-when="true">
+						<select>
+							<option value="red">red</option>
+							<option value="blue">blue</option>
+							<option value="yellow">yellow</option>
+						</select>
+					</span>
+				</td>
+				<td ng-switch="vm.isEditing(fruit)"  style="width:5%">
+					<span ng-switch-default>{{fruit.age}}</span>
+					<span ng-switch-when="true">
+						<input type="text" ng-model="fruit.age" style="width:45px;" />
+					</span>
+				</td>
+				<td style="width:17%">
 					{{fruit.create_date | date:'MM-dd-yyyy hh:mm:ss a'}}
 				</td>
-				<td style="width:20%">
+				<td style="width:17%">
 					{{fruit.update_date | date:'MM-dd-yyyy h:mm:ss a'}}
 				</td>
-				<td style="width:18%">
+				<td style="width:8%">
 					<button type="button" class="btn btn-default btn-sm" ng-if="!vm.isEditing(fruit)" ng-click="vm.setEditing(fruit)">
 						<span class="glyphicon glyphicon-pencil"></span>
 					</button>

@@ -118,7 +118,9 @@
 		function setEditing(fruit) {
 			var snapshot = {
 				id: fruit.id,
-				name: fruit.name
+				name: fruit.name,
+				type: fruit.type,
+				age: fruit.age
 			};
 			self.editingList.push(snapshot);
 		}
@@ -156,6 +158,8 @@
 			for (var i = 0; i < self.editingList.length; i++) {
 				if (self.editingList[i].id == fruit.id) {
 					fruit.name = self.editingList[i].name;
+					fruit.type = self.editingList[i].type;
+					fruit.age = self.editingList[i].age;
 				}
 			}
 			self.toggleOffEdit(fruit);

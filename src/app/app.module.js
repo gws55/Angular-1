@@ -1,6 +1,3 @@
-// styles
-//require('../assets/styles/main.css');
-
 (function() {
     'use strict';
 
@@ -13,9 +10,14 @@
          */
 
         /*
-         * Angular modules
+         * Angular native modules
          */ 
         'ngRoute', 'ngResource',
+
+        /*
+         * 3rd party modules
+         */ 
+        'ui.bootstrap', 'angular.filter',
 
         /*
          * Everybody has access to these.

@@ -23,23 +23,23 @@
             return $resource(url).get().$promise;
         }
 
-        function createFruit(newFruit) {
+        function createFruit(fruit) {
             var url = 'http://localhost:8080/api/f/insert?api_key=test';
-            url += '&name=' + newFruit.name;
+            url += '&name=' + fruit.name + '&type=' + fruit.type + '&age=' + fruit.age;
 
             return $resource(url).save().$promise;
         }
 
-        function updateFruit(updateFruit) {
+        function updateFruit(fruit) {
             var url = 'http://localhost:8080/api/f/update?api_key=test';
-            url += '&id=' + updateFruit.id + '&name=' + updateFruit.name;
+            url += '&id=' + fruit.id + '&name=' + fruit.name + '&type=' + fruit.type + '&age=' + fruit.age;
 
             return $resource(url).save().$promise;
         }
 
-        function deleteFruit(deleteFruit) {
+        function deleteFruit(fruit) {
             var url = 'http://localhost:8080/api/f/delete?api_key=test';
-            url += '&id=' + deleteFruit.id;
+            url += '&id=' + fruit.id;
 
             return $resource(url).save().$promise;
         }
