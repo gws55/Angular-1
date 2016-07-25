@@ -10,7 +10,7 @@
          */
 
         /*
-         * Angular native modules
+         * Ng modules
          */ 
         'ngRoute', 'ngResource',
 
